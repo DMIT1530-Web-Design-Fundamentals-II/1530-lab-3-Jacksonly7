@@ -1,9 +1,181 @@
 /* NOTE: Make sure that when you complete your Lab, you leave a comment at the top of this file listing which new properties you used! */
-
-:root {
+/* border-radius: Used to create rounded corners for .hero-content and .hero-content p.
+   2. rgba(): Used to create a semi-transparent background color for .hero-content.
+:root 
   --dk-grey: #263238;
   --hot-pink: #EC407A;
   --yellow: #FDD835;
   --green: #8BC34A;
   --white: #FAFAFA;
+}
+
+/* Universal Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--white);
+    color: var(--dk-grey);
+}
+
+header {
+    background-color: var(--dk-grey);
+    color: var(--white);
+    padding: 10px 0;
+}
+
+.inner-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-icon .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    margin: 4px 0;
+}
+
+.main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-menu li {
+    position: relative;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: var(--white);
+    padding: 10px 20px;
+    display: block;
+}
+
+.main-menu .submenu {
+    display: none;
+    position: absolute;
+    background-color: var(--dk-grey);
+    top: 100%;
+    left: 0;
+    padding: 10px 0;
+    list-style: none;
+}
+
+.main-menu .submenu li {
+    padding: 0;
+}
+
+.main-menu .submenu a {
+    padding: 10px 20px;
+    width: 200px;
+}
+
+.main-menu li:hover .submenu,
+.main-menu li:focus-within .submenu {
+    display: block;
+}
+
+.hero {
+    background: url('crowd-background.png');
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #FAFAFA;
+}
+.hero-content {
+    background-color: white; 
+    padding: 20px;
+    border-radius: 10px; 
+}
+
+.hero-content p {
+    background-color: #FAFAFA; 
+    padding: 10px; 
+    border-radius: 5px; 
+    color: #263238; 
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--hot-pink);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+/* Mobile-First Styles */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .main-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-menu.open {
+        display: flex;
+    }
+
+    .main-menu a {
+        padding: 10px;
+        border-bottom: 1px solid var(--dk-grey);
+    }
+
+    .main-menu .submenu {
+        position: static;
+        padding: 0;
+    }
+}
+
+/* Tablet View */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .main-menu {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+}
+
+/* Desktop View */
+@media (min-width: 1025px) {
+    .main-menu {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: none;
+    }
 }
